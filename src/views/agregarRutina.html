@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+    <title>Agregar Rutina</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+              <li class="nav-item mx-5  ">
+                <a href="./index.html"> <img src="./Utilidades/casa.png" alt="icono" width="30px" height="30px" class="ms-3 icon" tabindex="0"></a>
+                <a class="nav-link icon">Home</a>
+               
+              </li>
+              <li class="nav-item mx-5 ">
+               <a href="./Rutinas.html" > <img src="./Utilidades/musculo.png" alt="icono" width="30px" height="30px" class="ms-3 icon" tabindex="0"></a>
+                <a class="nav-link icon ">Rutinas</a>
+              </li>
+              <li class="nav-item mx-5 ">
+               <a href="./Ejercicios.html" class=""> <img src="./Utilidades/pesa.png" alt="" width="30px" height="30px" class="ms-4 icon" tabindex="0"></a>
+                <a class="nav-link icon ">Ejercicios</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <button class="btn rounded-pill btn-select text-light">
+                Cerrar Sesion
+              </button>
+    
+            </div>
+          </div>
+        </div>
+      </nav>
+        <!--Contenido de la pagina-->
+      <div class="container text-light">
+        <div class="clearfix">
+             
+        <a href="./Rutinas.html"><button type="button" class="btn btn-select text-white float-start"><i class="fa-solid fa-xmark" style="color: white;"></i></button></a>
+        <button type="button" class="btn btn-select text-white float-end" onclick="crearRutina()" id="liveToastBtn">Guardar</button>
+
+
+        </div>
+
+        <div id="liveAlertPlaceholder">
+          <div id="alerta1">
+
+          </div>
+
+        </div>
+        <form class="row g-2 mb-3 m-2 text-light">    
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" >Nombre de Rutina</label>
+            <input type="text" class="form-control input1" id="nombreRutina" placeholder="Nombre Rutina" required>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descripcion de la rutina</label>
+            <textarea class="form-control input1" id="descripcion" rows="3" required></textarea>
+          </div>
+          </form>
+      </div>
+
+      <div class="d-grid gap-2 d-flex justify-content-center">
+        <button class="btn  mx-2 btn-select text-warning"  id="AgregarEjercicios" data-bs-toggle="modal" href="#exampleModalToggle">Agregar Ejercicio</button>
+      </div>
+
+
+      <div class="container">
+        <table class="table text-light m-2" id="myTable" >
+          <thead>
+            <tr>
+              <th style="visibility: collapse;">Id</th>
+              <th scope="col">Ejercicio</th>
+              <th scope="col">Repeticiones</th>
+              <th scope="col">Series</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="ejercicosderutina" class="text-light">
+
+          </tbody>
+        </table>
+      </div>
+
+
+      <!--Primer modal para Agregar las ejercicios a la rutina hechos con boostrap -->
+      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered text-light modal-lg">
+          <div class="modal-content"  style="background-color: #333333;">
+            <div class="modal-header"  style="background-color: #333333;">
+              <h5 class="modal-title" id="exampleModalToggleLabel">Ejercicio</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="dropdown ms-4 m-4 ">
+                <button class="btn btn-select dropdown-toggle text-light" type="button"  style=" width: 150px;" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                  Parte del Cuerpo
+                </button>
+                
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: #333333;">
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="todos" value="todos" >Todos</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="espalda" value="espalda" >Espalda</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="hombro" value="hombros" >Hombros</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="AnteB" value="brazo" >Ante-Brazo</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="abdomen" value="abdomen" >Abdomen</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="tricep" value="brazo" >Triceps</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="pecho"value="pecho" >Pecho</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="pierna" value="pierna" >Pierna</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="bicep" value="brazo" >Biceps</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="gluteos" value="brazo" >Gluteos</button></li>
+                  <li><button class="dropdown-item btn-select text-light" type="button" id="cardio" value="brazo" >Cardio</button></li>
+                </ul>
+              </div>
+              <div id="ejercicios" class="list-group list-group-flush align-items-center text-light ">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Segundo modal para ingresar la informacion de cada ejercicio-->
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered text-light">
+          <div class="modal-content" style="background-color: #333333;">
+            <div class="modal-header" style="background-color: #333333;">
+              <button type="button" class="btn-close" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"></button>
+            </div>
+            <div class="modal-body" id="detallesEjercicioRutina">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+</body>
+
+<script src="./agregarRutina.js"></script>
+</html>

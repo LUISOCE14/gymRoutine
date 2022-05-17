@@ -1,0 +1,95 @@
+body{
+    background-color: #333333;
+}
+
+.color-link:hover{
+    border-color: #FF8243;
+}
+
+.btn-select{
+    border-color: #FF8243;
+
+}
+.btn-select:hover{
+    background-color: #FF8243;
+}
+.btn-select:focus{
+     background-color: #FF8243;
+}
+.icon:hover{
+    filter: invert(60%) sepia(5%) saturate(6644%) hue-rotate(331deg) brightness(102%) contrast(101%);
+    color: #FF8243;
+}
+.icono{
+    color: white;
+}
+.input1{
+    background:none;
+    background-image:none;
+    border:1px solid orange;
+    color: orange;
+}
+.input1:focus{
+    
+    background-color: #333333;
+}
+.form{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.form input{
+    width: 100%;
+    height: 100%;
+    background: none;
+    padding-top: 20px;
+    border: none;
+    outline: 0px;
+}
+.form .lbl-nombre{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #c7c7c7;
+}
+.form .lbl-nombre:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #FF8243;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+.form input:focus + .lbl-nombre .text-nomb,.form input:valid + .lbl-nombre .text-nomb{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #2ecece;
+}
+.form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after{
+    transform: translateX(0%);
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+ .form{
+    width:85%;
+}
+    }
+
+
+    a:link, a:visited, a:active {
+        text-decoration:none;
+    }
