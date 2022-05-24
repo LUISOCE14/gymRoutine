@@ -1,6 +1,8 @@
 # gymRoutine
 Gym Routine
+
 -Para desplegar este proyecto en tu computadora basta con descargar el ejecutable que hay en el repositorio.
+
 -O si no baja el repositorio.
 -Una vez en tu computadora  lo primero será instalar la base de datos en un sistema gesto mysql
 -Una vez ejecutado el query abre el proyecto en visual studio code.
